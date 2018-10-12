@@ -5,6 +5,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const { byZip } = require('./zipData');
+const { byCity } = require('./zipData');
 
 const PORT = process.env.PORT || 8000;
 
@@ -34,7 +35,13 @@ app.get('/zip/:zipcode', (req, res) => {
 
 app.get('/city/:cityname', (req, res) => {
   // fill in...
-  const cityname = zipdb.byCity.cityname;
+  const cityname = req.params.cityname;
+  const data = byCity[cityname];
+
+  res.json({
+    message: 'success',
+    data
+  })
 });
 
 

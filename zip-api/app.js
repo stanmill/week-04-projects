@@ -36,12 +36,13 @@ app.get('/zip/:zipcode', (req, res) => {
 app.get('/city/:cityname', (req, res) => {
   // fill in...
   const cityname = req.params.cityname;
-  const data = byCity[cityname];
+  const info = byCity[cityname];
 
   res.json({
     message: 'success',
-    data
+    info
   })
+
 });
 
 
